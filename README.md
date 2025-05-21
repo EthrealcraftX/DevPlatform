@@ -1,78 +1,120 @@
-# DevPlatform – Universal Web-based Project Manager
+# MultiMax Project Hosting Panel
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-## Overview
+> Powerful self-hosted project management panel for **Node.js**, **Python**, and **Java** applications.  
+> Create, upload, start, monitor, and manage your projects — all from a simple web interface!
 
-**DevPlatform** is a modern, extensible web-based project management panel built with Node.js that supports multiple programming languages. This platform allows you to:
+---
 
-- Create and manage Node.js, Python, or Java projects
-- Upload files (locally or via GitHub integration)
-- Select main execution files
-- Monitor live logs and terminal output
-- Edit files with built-in file manager
-- Track resource usage (CPU, network speed, storage)
-- View statistics, configure settings, and securely delete files
-- Work seamlessly across mobile and desktop interfaces
+## ✨ Features
 
-## Key Features
+- ✅ Create project with **drag & drop** file/folder upload
+- ✅ GitHub repo auto-import
+- ✅ Choose main file, project type (Node, Python, Java)
+- ✅ Realtime **disk usage** and **internet speed**
+- ✅ Project lifecycle: **start / stop / delete**
+- ✅ **File manager** with open / delete / upload
+- ✅ **Online editor** with CodeMirror integration
+- ✅ **Live console logs** and input stream
+- ✅ **Admin panel** to manage users (promote to admin, delete, view total projects)
+- ✅ Email support with **Brevo SMTP**
 
-### 🚀 Project Management
-- Multi-language project creation (Node.js, Python, Java)
-- GitHub repository integration
-- Project configuration and environment setup
+---
 
-### 📁 File Operations
-- Advanced file manager with:
-  - Upload/download functionality
-  - File/folder creation, renaming, deletion
-  - Code editor with syntax highlighting
-  - Version control integration
-
-### ⚙️ System Monitoring
-- Real-time resource tracking:
-  - CPU/RAM usage graphs
-  - Network speed monitoring
-  - Storage utilization
-- Process management with start/stop controls
-
-### 🌐 Web Interface
-- Responsive design for all devices
-- Dark/light mode support
-- REST API for external integrations
-- Modular architecture for easy extension
-
-## Technology Stack
-
-| Layer       | Technology               |
-|-------------|--------------------------|
-| Backend     | Node.js, Express         |
-| Frontend    | EJS, HTML5/CSS3/ES6      |
-| Database    | SQLite/PostgreSQL        |
-| Styling     | Tailwind CSS             |
-| File Ops    | fs-extra, multer         |
-| Process Mgr | PM2, child_process       |
-
-## Installation
+## ⚙️ Installation
 
 ```bash
-# Clone repository
-git clone https://github.com/EthrealcraftX/DevPlatform.git
-cd DevPlatform
-
-# Install dependencies
+git clone https://github.com/yourusername/multimax-panel
+cd multimax-panel
 npm install
+```
 
-# Configure environment
-cp .env.example .env
-nano .env  # Edit configuration
+Start the server:
 
-# Start application
-npm start
+node server.js
 
-# For production:
-npm install -g pm2
-pm2 start server.js --name "DevPlatform"
+
+🔐 Login
+
+Default login available via registration
+
+```login
+username: admin
+password: 1234
+```
+Admins can manage other users via /admin/users
+
+```admin
+/admin
+/admin/users
+/admin/stats
+```
+
+users management 
+
+```users
+/home
+/login
+/register
+```
+
+
+<h1>📁 How to Use
+
+1. Login or register a new user
+(when user register account admin must give permission for login when they registered new account)
+
+2. Go to + Create Project
+
+
+3.import from GitHub
+
+
+4. Choose main file, project type(Nodejs/Python/Java)
+
+
+5. Click “Create Project”
+
+
+6. Start/Stop, view logs, and edit files online
+
+
+
+
+✅ Test Coverage
+
+
+⚠️ Warnings
+
+This panel is still in development. Expect bugs or edge case failures.
+
+.jar support is basic. Please report issues if encountered.
+
+Email system is tested only with Brevo SMTP (recommended) you can enter your Brevo gmail and edit in services/emailService.js.
+
+All uploads are stored in the uploads/ directory. Handle with care!
+
+Admin features are basic but extendable.
+
+
+
+🛡 License
+
+MIT License — feel free to use and modify.
+
+
+
+👨‍💻 Author
+
+Developed by EthrealCraftX
+Telegram: @ethrealcraft
+GitHub: https://github.com/yourusername
+
+
+⭐ Contribute / Feedback
+
+If you found this project useful, please star the repo and feel free to open issues or PRs!1
