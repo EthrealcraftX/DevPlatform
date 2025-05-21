@@ -29,7 +29,7 @@
 
 ```bash
 git clone https://github.com/EthrealcraftX/DevPlatform.git
-cd multimax-panel
+cd DevPlatform
 npm install
 ```
 
