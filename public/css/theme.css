@@ -1,0 +1,114 @@
+/* === Light Mode === */
+body.light {
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+body.light .navbar {
+  background-color: #007bff;
+  color: white;
+}
+
+body.light .navbar a {
+  color: white;
+}
+
+body.light .mode-toggle {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+}
+
+/* === Dark Mode === */
+body.dark {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark .navbar {
+  background-color: #121212;
+  color: #ddd;
+}
+
+body.dark .navbar a {
+  color: #ddd;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background-color: #2b2b2b;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+body.dark .mode-toggle {
+  border: 1px solid #aaa;
+  background: transparent;
+  color: #ccc;
+}
+
+body.dark .drop-zone {
+  border-color: #888;
+  color: #ccc;
+  background-color: #1a1a1a;
+}
+
+body.dark .drop-zone.drag-over {
+  background-color: #2a2a2a;
+}
+
+body.dark .project-card {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 14px 20px;
+  border-radius: 6px;
+  color: white;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.3s ease;
+}
+
+.toast.success {
+  background-color: #28a745;
+}
+
+.toast.error {
+  background-color: #dc3545;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+body.dark .project-card .btn-more,
+body.dark .project-card .btn-start,
+body.dark .project-card .btn-stop,
+body.dark .project-card .btn-delete {
+  color: white;
+}
+

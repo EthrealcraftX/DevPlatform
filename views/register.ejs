@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | DevPanel</title>
+  <link rel="stylesheet" href="/public/css/auth.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <h2>Create Account</h2>
+
+    <% if (error) { %>
+      <div class="auth-error"><%= error %></div>
+    <% } %>
+
+    <form action="/register" method="POST">
+      <label>Username</label>
+      <input type="text" name="username" required>
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Password</label>
+      <input type="password" name="password" required>
+
+      <label>Confirm Password</label>
+      <input type="password" name="confirmPassword" required>
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <p class="auth-note">
+      Your registration is pending admin approval.  
+      You will receive an email once you're approved.
+    </p>
+
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+</body>
+</html>

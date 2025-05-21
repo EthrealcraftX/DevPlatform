@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Stats</title>
+  <link rel="stylesheet" href="/public/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-dashboard">
+
+  <nav class="admin-navbar">
+    <div class="left">
+      <h2>System Statistics</h2>
+    </div>
+    <div class="right">
+      <a href="/admin">← Back to Admin</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="stats-summary">
+      <div class="stat-card">
+        <h4>CPU Usage</h4>
+        <p><%= stats.cpu %> %</p>
+      </div>
+
+      <div class="stat-card">
+        <h4>RAM Usage</h4>
+        <p><%= stats.ram %> %</p>
+      </div>
+
+      <div class="stat-card">
+        <h4>Internet Speed</h4>
+        <p><%= stats.internet %> Mbps</p>
+      </div>
+
+      <div class="stat-card">
+        <h4>Total Projects</h4>
+        <p><%= stats.totalProjects %></p>
+      </div>
+
+      <div class="stat-card">
+        <h4>Used Space</h4>
+        <p><%= stats.usedSpace %> MB</p>
+      </div>
+    </div>
+
+    <h3>Disk Usage</h3>
+    <canvas id="diskChart" width="600" height="200"></canvas>
+
+    <script>
+      const ctx = document.getElementById('diskChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: <%- JSON.stringify(stats.projectNames) %>,
+          datasets: [{
+            label: 'Disk Usage (MB)',
+            data: <%- JSON.stringify(stats.projectSizes) %>,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    </script>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+[2025-05-21T09:09:12.076Z] [OUT] ✅ Yangi API token yaratildi: 8f0920d2249bb49d213eb1d9804158aed30f0eccbc7d7e24
+
+[2025-05-21T09:09:12.078Z] [OUT] 📁 PIDs loaded: 0 ta
+
+[2025-05-21T09:09:12.100Z] [OUT] Server is running at:
+
+[2025-05-21T09:09:12.101Z] [OUT]   - http://localhost:3000
+
+[2025-05-21T09:09:32.814Z] [EXIT] Process finished with code null
+[2025-05-21T09:51:09.892Z] [OUT] 📁 PIDs loaded: 0 ta
+
+[2025-05-21T09:51:09.914Z] [OUT] Server is running at:
+
+[2025-05-21T09:51:09.915Z] [OUT]   - http://localhost:3000
+
+[2025-05-21T10:07:48.382Z] [OUT] 📁 PIDs loaded: 0 ta
+
+[2025-05-21T10:07:48.405Z] [OUT] Server is running at:
+
+[2025-05-21T10:07:48.406Z] [OUT]   - http://localhost:3000
+
+[2025-05-21T10:12:14.507Z] [OUT] 📁 PIDs loaded: 0 ta
+
+[2025-05-21T10:12:14.528Z] [OUT] Server is running at:
+
+[2025-05-21T10:12:14.529Z] [OUT]   - http://localhost:3000
+
+[2025-05-21T10:19:30.835Z] > Pip install telethon
+[2025-05-21T10:58:29.801Z] [EXIT] Process finished with code null

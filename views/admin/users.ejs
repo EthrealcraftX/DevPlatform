@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USers list</title>
+  <link rel="stylesheet" href="/public/css/admin.css" />
+</head>
+<body>
+  
+<nav class="admin-navbar">
+    <div class="left">
+      <h2>Dev Users Managment</h2>
+    </div>
+    <div class="right">
+      <a href="/admin">← Back to Admin</a>
+    </div>
+  </nav>
+
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Projects</th>
+      <th>Admin</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(u => { %>
+      <tr>
+        <td><%= u.username %></td>
+        <td><%= u.email %></td>
+        <td>
+          <input type="password" value="<%= u.password %>" readonly />
+          <button onclick="togglePassword(this)">👁️</button>
+        </td>
+        <td><%= u.projectCount %></td>
+        <td><%= u.isAdmin ? 'Yes' : 'No' %></td>
+        <td>
+          <form action="/admin/users/<%= u.id %>/toggle" method="POST">
+            <button type="submit" class="btn <%= u.isAdmin ? 'danger' : 'success' %>">
+              <%= u.isAdmin ? 'Unadmin' : 'Give Admin' %>
+            </button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<script>
+  function togglePassword(btn) {
+    const input = btn.previousElementSibling;
+    input.type = input.type === 'password' ? 'text' : 'password';
+  }
+</script>
+
+<style>
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .user-table th, .user-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .btn.success {
+    background: green;
+    color: white;
+  }
+
+  .btn.danger {
+    background: red;
+    color: white;
+  }
+</style>
+
+
+</body>
+</html>

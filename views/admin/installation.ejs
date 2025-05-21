@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Installation Tools</title>
+  <link rel="stylesheet" href="/public/css/admin.css" />
+</head>
+<body class="admin-dashboard">
+
+  <nav class="admin-navbar">
+    <div class="left">
+      <h2>Dev Environment Installation</h2>
+    </div>
+    <div class="right">
+      <a href="/admin">← Back to Admin</a>
+    </div>
+  </nav>
+
+  <main class="install-tools">
+    <section class="tool-section">
+      <h3>Python</h3>
+      <form action="/admin/install/python" method="POST">
+        <button type="submit" class="btn install">Install Dependencies (pip)</button>
+      </form>
+      <form action="/admin/check/python" method="POST">
+        <button type="submit" class="btn check">Check Version</button>
+      </form>
+    </section>
+
+    <section class="tool-section">
+      <h3>Node.js</h3>
+      <form action="/admin/install/node" method="POST">
+        <button type="submit" class="btn install">Run npm install</button>
+      </form>
+      <form action="/admin/check/node" method="POST">
+        <button type="submit" class="btn check">Check Version</button>
+      </form>
+    </section>
+
+    <section class="tool-section">
+      <h3>Java</h3>
+      <form action="/admin/check/java" method="POST">
+        <button type="submit" class="btn check">Check java -version</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

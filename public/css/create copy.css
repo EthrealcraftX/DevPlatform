@@ -1,0 +1,159 @@
+/* === Global === */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* === Upload Box === */
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.upload-box.dragover {
+  border-color: #3498db;
+  background-color: #f0f8ff;
+}
+
+.upload-box p {
+  color: #777;
+  font-size: 16px;
+}
+
+/* === File List === */
+.file-list {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1f1;
+  margin-bottom: 5px;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.file-item span {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 14px;
+}
+
+.file-item button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* === Inputs === */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #fcfcfc;
+}
+
+/* === Buttons === */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 25px;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn.cancel {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn.next {
+  background-color: #2ecc71;
+  color: white;
+}
+
+/* === GitHub link input + install btn === */
+.github-upload {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.github-upload input[type="text"] {
+  flex-grow: 1;
+}
+
+.github-upload button {
+  padding: 10px 15px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* === Main file select === */
+.select-main {
+  margin-top: 20px;
+}
+
+.select-main label {
+  font-weight: bold;
+}
+
+.select-main select {
+  margin-top: 5px;
+}
+
+/* === Mobile === */
+@media (max-width: 600px) {
+  .btn-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .github-upload {
+    flex-direction: column;
+  }
+}

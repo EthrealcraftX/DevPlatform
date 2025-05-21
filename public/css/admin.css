@@ -1,0 +1,104 @@
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: #111;
+  color: white;
+}
+
+.notification {
+  position: relative;
+  display: inline-block;
+}
+
+.notification .count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 50%;
+}
+
+.pending-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pending-table th, .pending-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.btn.approve {
+  background: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+
+.btn.reject {
+  background: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+
+/*stats.ejs*/
+.stats-summary {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.stat-card {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 6px;
+  flex: 1 1 200px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+/*installation.ejs*/
+.install-tools {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.tool-section {
+  background: #f8f8f8;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.tool-section h3 {
+  margin-top: 0;
+}
+
+.tool-section form {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.btn.install {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn.check {
+  background: #6c757d;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+}

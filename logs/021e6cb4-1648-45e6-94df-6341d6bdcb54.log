@@ -1,0 +1,15 @@
+[2025-05-19T10:02:42.118Z] === Starting PYTHON project ===
+[2025-05-19T10:02:42.225Z] ERR: python: can't open file 'C:\\Users\\user\\Downloads\\Telegram': [Errno 2] No such file or directory
+
+[2025-05-19T10:02:42.257Z] === Process exited with code 2 ===
+[2025-05-19T10:24:39.507Z] === Starting PYTHON project ===
+[2025-05-19T10:24:39.716Z] ERR: python: can't open file 'C:\\Users\\user\\Downloads\\Telegram': [Errno 2] No such file or directory
+
+[2025-05-19T10:24:39.728Z] === Process exited with code 2 ===
+[2025-05-19T10:35:17.667Z] [EXIT] Process finished with code null
+[2025-05-19T12:32:58.439Z] [ERR] Unable to connect due to network issues: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+
+[2025-05-19T12:36:56.544Z] [EXIT] Process finished with code null
+[2025-05-19T12:52:15.844Z] [EXIT] Process finished with code null
+[2025-05-19T13:20:15.575Z] [EXIT] Process finished with code null
+[2025-05-19T13:50:41.838Z] [EXIT] Process finished with code null

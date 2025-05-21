@@ -1,0 +1,66 @@
+<!-- Editor Wrapper -->
+<div class="editor-wrapper">
+  <h3><%= filePath %></h3>
+
+  <form id="editorForm" action="/project/<%= projectId %>/file/save" method="POST">
+    <input type="hidden" name="filePath" value="<%= filePath %>">
+    <textarea id="editor" name="content"><%- fileContent %></textarea>
+
+    <% if (!isReadOnly) { %>
+      <button type="submit" class="btn save">Save</button>
+    <% } else { %>
+      <p class="readonly-msg">Project is online. File is read-only.</p>
+    <% } %>
+  </form>
+</div>
+
+<!-- CodeMirror Assets -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.min.js"></script>
+
+<!-- Init CodeMirror -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+      lineNumbers: true,
+      mode: "<%= fileMode %>",
+      theme: "default",
+      readOnly: false
+    });
+
+    editor.setSize("100%", "500px");
+  });
+</script>
+
+<!-- Styling -->
+<style>
+  .editor-wrapper {
+    margin-top: 20px;
+  }
+
+  #editor {
+    display: none;
+  }
+
+  .btn.save {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .readonly-msg {
+    margin-top: 10px;
+    font-style: italic;
+    color: #777;
+  }
+</style>

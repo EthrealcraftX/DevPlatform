@@ -1,0 +1,85 @@
+<h2>⚙️ Project Settings</h2>
+
+<% if (project.status === 'online') { %>
+  <p class="readonly-msg">Project is currently online. Settings are locked.</p>
+<% } %>
+
+<form action="/project/<%= project.id %>/settings" method="POST" <%= project.status === 'online' ? 'class="disabled"' : '' %>>
+  <label>Main File:</label>
+  <select name="mainFile" required <%= project.status === 'online' ? 'disabled' : '' %>>
+  <% files.forEach(f => { %>
+    <% if (f.type === 'file') { %>
+      <option value="<%= f.path %>" <%= f.path === project.main ? 'selected' : '' %>>
+        <%= f.path %>
+      </option>
+    <% } %>
+  <% }) %>
+</select>
+
+
+  <label>Project Type:</label>
+  <select name="type" required <%= project.status === 'online' ? 'disabled' : '' %>>
+    <option value="nodejs" <%= project.type === 'nodejs' ? 'selected' : '' %>>Node.js</option>
+    <option value="python" <%= project.type === 'python' ? 'selected' : '' %>>Python</option>
+    <option value="java" <%= project.type === 'java' ? 'selected' : '' %>>Java</option>
+  </select>
+
+  <label>Max Space (MB):</label>
+  <input type="number" name="maxSpace" min="100" value="<%= project.maxSpace %>" <%= project.status === 'online' ? 'disabled' : '' %> />
+
+  <% if (project.status === 'offline') { %>
+    <button type="submit" class="btn save">Save Settings</button>
+  <% } %>
+</form>
+
+<form action="/project/<%= project.id %>/delete" method="POST">
+  <button type="submit" class="btn delete" <%= project.status === 'online' ? 'disabled' : '' %>>Delete Project</button>
+</form>
+
+<style>
+  form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  select, input[type="number"] {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+
+  .btn.save {
+    background: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .btn.delete {
+    background: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+  }
+
+  .readonly-msg {
+    color: #999;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  form.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+</style>

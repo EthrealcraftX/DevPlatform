@@ -1,0 +1,41 @@
+{
+  "name": "multimax-panel",
+  "version": "1.0.0",
+  "description": "Multi-language project hosting panel for Node.js, Python and Java apps with web-based dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "python",
+    "java",
+    "project-manager",
+    "dashboard",
+    "host",
+    "multi-language",
+    "panel"
+  ],
+  "author": "EthrealCraftX",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "*",
+    "chart.js": "*",
+    "codemirror": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-fileupload": "*",
+    "express-session": "*",
+    "fs-extra": "*",
+    "method-override": "*",
+    "mime-types": "*",
+    "nodemailer": "*",
+    "node-fetch": "*",
+    "socket.io": "*",
+    "unzipper": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}

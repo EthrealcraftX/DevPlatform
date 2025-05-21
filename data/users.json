@@ -1,0 +1,24 @@
+[
+  {
+    "id": "admin-865863576",
+    "username": "admin",
+    "password": "1234",
+    "isAdmin": true
+  },
+  {
+    "id": "e507c30f-1f49-42e3-866f-5eccfc6ccd17",
+    "username": "user",
+    "password": "1234",
+    "email": "multimaxcodder@gmail.com",
+    "status": "approved",
+    "isAdmin": false
+  },
+  {
+    "id": "4c2280b9-8420-45d6-88af-c32a192df4e8",
+    "username": "M",
+    "password": "1234",
+    "email": "eldadod8@gmail.com",
+    "status": "pending",
+    "isAdmin": false
+  }
+]

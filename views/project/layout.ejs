@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= project.name %> - Project</title>
+  <link rel="stylesheet" href="/public/css/project.css">
+  <link rel="stylesheet" href="/public/css/theme.css">
+</head>
+<body class="light">
+
+  <!-- Navbar -->
+  <nav class="project-navbar">
+    <div class="left">
+      <a href="/">← Back</a>
+    </div>
+    <div class="right">
+      <span><%= user.username %></span>
+      <button id="themeToggle">🌓</button>
+    </div>
+  </nav>
+
+  <!-- Toast -->
+  <% if (typeof toast !== 'undefined') { %>
+    <%- include('../../views/partials/toast') %>
+  <% } %>
+
+  <!-- Tabs -->
+  <div class="tab-bar">
+    <a href="#main" class="tab">Main</a>
+    <a href="#stats" class="tab">Stats</a>
+    <a href="#settings" class="tab">Settings</a>
+    <a href="#logs" class="tab">Logs</a>
+    <a href="#console" class="tab">Console</a>
+    <a href="#files" class="tab">File Manager</a>
+    <a href="#install" class="tab">install</a>
+  </div>
+
+  <!-- Tab Contents -->
+  <main class="project-tab-content">
+    <div id="mainTab" class="tab-content"><%- include('tabs/main') %></div>
+    <div id="statsTab" class="tab-content"><%- include('tabs/stats') %></div>
+    <div id="settingsTab" class="tab-content"><%- include('tabs/settings') %></div>
+    <div id="logsTab" class="tab-content"><%- include('tabs/logs') %></div>
+    <div id="consoleTab" class="tab-content"><%- include('tabs/console') %></div>
+    <div id="filesTab" class="tab-content"><%- include('tabs/files') %></div>
+    <div id="installTab" class="tab-content"><%- include('tabs/install', { installMessage: toast }) %></div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+    toggle.addEventListener('click', () => {
+      const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+      document.body.className = newTheme;
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // Tab navigation
+    const tabs = document.querySelectorAll('.tab-content');
+    const links = document.querySelectorAll('.tab');
+
+    function showTab(tabName) {
+      tabs.forEach(t => t.style.display = 'none');
+      links.forEach(l => l.classList.remove('active'));
+      const currentTab = document.getElementById(tabName + 'Tab');
+      const currentLink = document.querySelector(`.tab[href="#${tabName}"]`);
+      if (currentTab) currentTab.style.display = 'block';
+      if (currentLink) currentLink.classList.add('active');
+    }
+
+    const initialTab = window.location.hash.replace('#', '') || 'main';
+    showTab(initialTab);
+
+    window.addEventListener('hashchange', () => {
+      const nextTab = window.location.hash.replace('#', '');
+      showTab(nextTab);
+    });
+  </script>
+</body>
+</html>

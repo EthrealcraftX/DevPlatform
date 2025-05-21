@@ -1,0 +1,46 @@
+<h2>📄 Logs</h2>
+
+<div class="logs-container">
+  <pre id="logOutput" class="log-output"><%= logs || '' %></pre>
+</div>
+
+<a href="/logs/<%= project.id %>.log" download class="btn download">
+  ⬇️ Download Logs
+</a>
+
+<script>
+  const logOutput = document.getElementById('logOutput');
+  const socket = io(`/project-log/<%= project.id %>`);
+
+  socket.on('console', (data) => {
+    logOutput.textContent += data;
+    logOutput.scrollTop = logOutput.scrollHeight;
+  });
+</script>
+
+<style>
+  .logs-container {
+    background: #111;
+    color: #0f0;
+    padding: 15px;
+    height: 400px;
+    overflow-y: auto;
+    border-radius: 5px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-bottom: 15px;
+  }
+
+  .btn.download {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .btn.download:hover {
+    background: #0056b3;
+  }
+</style>

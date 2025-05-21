@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Bot Projects</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .project-box {
+      background: #000000;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 15px 20px;
+      width: 320px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-type {
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .project-type.bedrock {
+      background: #3b82f6;
+    }
+
+    .project-type.java {
+      background: #10b981;
+    }
+
+    .status.running {
+      color: #ffffff;
+    }
+
+    .status.stopped {
+      color: #ffffff;
+    }
+
+    .project-details {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .project-details p {
+      margin: 4px 0;
+    }
+
+    .project-actions {
+      margin-top: 10px;
+    }
+
+    .project-actions form,
+    .project-actions a {
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .project-actions button {
+      background: #292929;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .create-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .create-button {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .empty-message {
+      text-align: center;
+      font-size: 18px;
+      margin: 50px auto;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="create-container">
+    <input type="text" id="searchInput" placeholder="🔎 Project ID bo‘yicha qidirish..." style="padding: 10px; width: 250px; border-radius: 6px; border: none; outline: none;">
+  </div>
+
+  <% if (projects.length === 0) { %>
+    <div class="empty-message">
+      <p>No projects yet. Create one below.</p>
+    </div>
+  <% } %>
+
+  <div class="projects-container">
+    <% projects.forEach(project => { %>
+      <div class="project-box" data-id="<%= project.id %>">
+        <div class="project-header">
+          <span class="project-type <%= project.type ? project.type.toLowerCase() : '' %>">
+            <%= project.type ? project.type.toUpperCase() : 'N/A' %>
+          </span>
+          <span class="status <%= project.status %>">
+            <%= project.status.toUpperCase() %>
+          </span>
+        </div>
+
+        <h2><%= project.name %></h2>
+
+        <div class="project-details">
+          <p><strong>ID:</strong> <%= project.id %></p>
+          <p><strong>IP:</strong> <%= project.host %></p>
+          <p><strong>Port:</strong> <%= project.port %></p>
+          <p><strong>Version:</strong> <%= project.version %></p>
+        </div>
+
+        <div class="project-actions">
+          <form method="POST" action="/run/<%= project.id %>">
+            <button type="submit">▶️ Run</button>
+          </form>
+          <form method="POST" action="/stop/<%= project.id %>">
+            <button type="submit">⏹️ Stop</button>
+          </form>
+          <form method="POST" action="/delete/<%= project.id %>">
+            <button type="submit">🗑️ Delete</button>
+          </form>
+          <a href="/logs/<%= project.id %>">📄</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+
+  <div class="create-container">
+    <a href="/create" class="create-button">+ Create Project</a>
+  </div>
+
+  <script>
+    const input = document.getElementById('searchInput');
+      input.addEventListener('input', function () {
+        const keyword = this.value.trim().toLowerCase();
+        const boxes = document.querySelectorAll('.project-box');
+        boxes.forEach(box => {
+          const id = box.dataset.id.toLowerCase();
+          box.style.display = id.includes(keyword) ? 'inline-block' : 'none';
+        });
+      });
+  </script>
+
+</body>
+</html>

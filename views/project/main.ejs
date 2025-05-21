@@ -1,0 +1,67 @@
+<h2>Main</h2>
+
+<section class="project-info">
+  <p><strong>Project Name:</strong> <%= project.name %></p>
+  <p><strong>Project ID:</strong> <%= project.id %></p>
+  <p><strong>Project Type:</strong> <%= project.type %></p>
+  <p><strong>Status:</strong>
+    <span class="status <%= project.status %>">
+      <%= project.status === 'online' ? '🟢 Online' : '🔴 Offline' %>
+    </span>
+  </p>
+  <p><strong>Allocated Space:</strong> <%= project.maxSpace %> MB</p>
+</section>
+
+<form action="/project/<%= project.id %>/start" method="POST" style="display:inline;">
+  <button class="btn start" <%= project.status === 'online' ? 'disabled' : '' %>>Start</button>
+</form>
+
+<form action="/project/<%= project.id %>/stop" method="POST" style="display:inline;">
+  <button class="btn stop" <%= project.status === 'offline' ? 'disabled' : '' %>>Stop</button>
+</form>
+
+<form action="/project/<%= project.id %>/delete" method="POST" style="display:inline;">
+  <button class="btn delete" <%= project.status === 'online' ? 'disabled' : '' %>>Delete</button>
+</form>
+
+<style>
+  .project-info p {
+    margin-bottom: 8px;
+  }
+
+  .status.online {
+    color: green;
+    font-weight: bold;
+  }
+
+  .status.offline {
+    color: red;
+    font-weight: bold;
+  }
+
+  .btn.start {
+    background: green;
+    color: white;
+    padding: 6px 12px;
+    margin-top: 10px;
+    margin-right: 8px;
+  }
+
+  .btn.stop {
+    background: crimson;
+    color: white;
+    padding: 6px 12px;
+    margin-right: 8px;
+  }
+
+  .btn.delete {
+    background: gray;
+    color: white;
+    padding: 6px 12px;
+  }
+
+  .btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Project</title>
+  <link rel="stylesheet" href="/public/css/create.css" />
+  <link rel="stylesheet" href="/public/css/theme.css" />
+</head>
+<body class="light">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="left">
+      <a href="/home">← Back to Dashboard</a>
+    </div>
+    <div class="right">
+      <span><%= user?.username || 'Guest' %></span>
+      <button id="themeToggle">🌓</button>
+    </div>
+  </nav>
+
+  <main class="create-page">
+    <h1>+ Create New Project</h1>
+
+    <!-- Project Name -->
+    <label for="projectName">Project Name:</label>
+    <input type="text" id="projectName" placeholder="e.g. MyTelegramBot" required />
+
+    <!-- Drag & Drop Upload -->
+    <!-- <label>Upload Files or Folder:</label> -->
+    <div id="dropZone" class="drop-zone">
+      <p>Drag & Drop files or folders here</p>
+      <input type="file" id="fileInput" webkitdirectoy directory multiple />
+      <button id="chooseBtn" type="button">Choose Folder</button>
+      <button id="uploadBtn" type="button">Upload</button>
+    </div>
+
+    <div id="fileList" class="file-list"></div>
+
+    <!-- GitHub Repo Install -->
+    <label for="githubUrl">Install from GitHub:</label>
+    <input type="url" id="githubUrl" placeholder="https://github.com/user/repo" />
+    <button id="installGithubBtn" type="button">Install</button>
+
+    <!-- Main File -->
+    <label for="mainFile">Select Main File:</label>
+    <select id="mainFile" required>
+      <option value="">-- Select --</option>
+    </select>
+
+    <!-- Project Type -->
+    <label for="projectType">Project Type:</label>
+    <select id="projectType" required>
+      <option value="">-- Select --</option>
+      <option value="nodejs">Node.js</option>
+      <option value="python">Python</option>
+      <option value="java">Java</option>
+    </select>
+
+    <!-- Max Space -->
+    <label for="maxSpace">Max Disk Space (MB):</label>
+    <input type="number" id="maxSpace" min="100" value="2000" required />
+
+    <!-- Action Buttons -->
+    <div class="btn-row">
+      <button class="btn cancel" id="cancelBtn" type="button">Cancel</button>
+      <button class="btn next" id="nextBtn" type="button" disabled>Create Project</button>
+    </div>
+  </main>
+
+  <script src="/public/js/create.js"></script>
+  <script>
+    const themeBtn = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+    themeBtn.addEventListener('click', () => {
+      const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+      document.body.className = newTheme;
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
+  <style>
+    #dropZone,
+    #chooseBtn,
+    #uploadBtn {
+      display: none;
+    }
+  </style>
+</body>
+</html>

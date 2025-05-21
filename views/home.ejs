@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/public/css/home.css" />
+  <link rel="stylesheet" href="/public/css/theme.css" />
+</head>
+<body class="light">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="left">Welcome, <%= user.username %></div>
+    <div class="right">
+      <a href="/create">+ Create Project</a>
+      <a href="/logout">Logout</a>
+      <button id="themeToggle">🌓</button>
+    </div>
+  </nav>
+
+  <!-- Toast -->
+  <%- include('partials/toast') %>
+
+  <!-- Projects -->
+  <main class="dashboard">
+    <% if (projects.length === 0) { %>
+      <p class="empty">No projects yet. Create your first one!</p>
+    <% } %>
+
+    <div class="project-list">
+      <% projects.forEach(p => { %>
+        <div class="project-card <%= p.type %>">
+          <div class="header">
+            <span class="type-label"><%= p.type %></span>
+            <span class="status-indicator <%= p.status %>">
+              <%= p.status === 'online' ? '🟢 Online' : '🔴 Offline' %>
+            </span>
+          </div>
+
+          <h3><%= p.name %></h3>
+          <p>ID: #<%= p.id %></p>
+          <p>Created: <%= p.createdAt %></p>
+
+          <div class="actions">
+            <form action="/project/<%= p.id %>/start" method="POST">
+              <button class="btn start" <%= p.status === 'online' ? 'disabled' : '' %>>Start</button>
+            </form>
+            <form action="/project/<%= p.id %>/stop" method="POST">
+              <button class="btn stop" <%= p.status === 'offline' ? 'disabled' : '' %>>Stop</button>
+            </form>
+            <form action="/project/<%= p.id %>/delete" method="POST">
+              <button class="btn delete" <%= p.status === 'online' ? 'disabled' : '' %>>Delete</button>
+            </form>
+            <a class="btn more" href="/project/<%= p.id %>">More</a>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+
+    toggle.addEventListener('click', () => {
+      const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+      document.body.className = newTheme;
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>

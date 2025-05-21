@@ -1,0 +1,10 @@
+{
+  "id": "91053cc7-e4f2-4b77-9e71-613434a19b81",
+  "name": "MInecraft Afk manager",
+  "main": "server.js",
+  "type": "nodejs",
+  "maxSpace": 3000,
+  "createdAt": "2025-05-21T09:08:54.875Z",
+  "ownerId": "admin-865863576",
+  "status": "offline"
+}

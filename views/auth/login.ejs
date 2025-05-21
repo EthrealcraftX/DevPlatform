@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | DevPanel</title>
+  <link rel="stylesheet" href="/public/css/auth.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <h2>Login</h2>
+
+    <% if (error) { %>
+      <div class="auth-error"><%= error %></div>
+    <% } %>
+
+    <form action="/login" method="POST">
+      <label>Username</label>
+      <input type="text" name="username" required>
+
+      <label>Password</label>
+      <input type="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="/register">Register</a></p>
+  </div>
+</body>
+</html>

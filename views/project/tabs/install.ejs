@@ -1,0 +1,44 @@
+<h2>⚙️ Install Dependencies</h2>
+
+<form action="/project/<%= project.id %>/install" method="POST">
+  <label for="packageName">Package Name(s):</label>
+  <input type="text" name="packageName" id="packageName" placeholder="e.g. express or telethon tgcrypto" required />
+
+  <button type="submit" class="btn install">Install</button>
+</form>
+
+<% if (installMessage) { %>
+  <p class="install-msg <%= installMessage.type %>"><%= installMessage.text %></p>
+<% } %>
+
+<style>
+  form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .btn.install {
+    background-color: #0069d9;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .install-msg.success {
+    color: green;
+  }
+
+  .install-msg.error {
+    color: red;
+  }
+</style>

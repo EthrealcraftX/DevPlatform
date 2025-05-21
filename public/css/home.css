@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fb;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background: #212936;
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .left {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navbar .right a,
+.navbar .right button {
+  background: #28a745;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.navbar .right button:hover,
+.navbar .right a:hover {
+  opacity: 0.9;
+}
+
+/* Container for all projects */
+.dashboard {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  background: #ffffff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Type & Status */
+.project-card .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.type-label {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.project-card.nodejs .type-label {
+  background: #3cba54;
+}
+
+.project-card.python .type-label {
+  background: #f4c20d;
+  color: #333;
+}
+
+.project-card.java .type-label {
+  background: #f57c00;
+}
+
+.project-card.bedrock .type-label {
+  background: #8e44ad;
+}
+
+/* Status badge */
+.status-indicator {
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-indicator.online {
+  background: #d4edda;
+  color: #28a745;
+}
+
+.status-indicator.offline {
+  background: #f8d7da;
+  color: #dc3545;
+}
+
+/* Project Info */
+.project-card h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+.project-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Action buttons */
+.actions {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actions form,
+.actions a {
+  flex: 1;
+}
+
+.actions .btn {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+.actions .start {
+  background: #28a745;
+}
+
+.actions .stop {
+  background: #dc3545;
+}
+
+.actions .delete {
+  background: #6c757d;
+}
+
+.actions .more {
+  background: #007bff;
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  color: #999;
+  font-size: 18px;
+  padding: 60px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-card {
+    width: 90%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar .right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

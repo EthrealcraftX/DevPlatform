@@ -1,0 +1,271 @@
+
+/*project/tabs/main.ejs
+.main-panel p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+.status-online {
+  color: #28a745;
+  font-weight: bold;
+}
+.status-offline {
+  color: #dc3545;
+  font-weight: bold;
+}
+.main-actions button {
+  margin-right: 10px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-start { background-color: #28a745; }
+.btn-stop { background-color: #e74c3c; }
+.btn-delete { background-color: #6c757d; }
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} */
+
+.main-tab {
+  padding: 20px;
+  color: #333;
+}
+
+.project-overview h2 {
+  margin-bottom: 15px;
+  color: #222;
+  font-size: 22px;
+}
+
+.project-overview ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.project-overview li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.project-overview strong {
+  width: 110px;
+  display: inline-block;
+  font-weight: bold;
+  color: #444;
+}
+
+.status.online {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status.offline {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.main-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.main-actions form {
+  display: inline-block;
+}
+
+.main-actions .btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn.start {
+  background-color: #28a745;
+}
+
+.btn.stop {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/*tabs/stats.ejs*/
+.stats-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.stats-info {
+  min-width: 200px;
+}
+.stats-info p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+/*tabs/settings.ejs*/
+.settings-form {
+  max-width: 500px;
+}
+.settings-form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+.settings-form input,
+.settings-form select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.warning {
+  color: red;
+  font-weight: bold;
+}
+
+/*tabs/logs.ejs*/
+.log-box {
+  background: #1e1e1e;
+  color: #00ff00;
+  height: 300px;
+  overflow-y: auto;
+  padding: 15px;
+  font-family: monospace;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px #000;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/*tabs/project.ejs*/
+.console-form {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+#consoleInput {
+  flex: 1;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.warning {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/*files.ejs*/
+.file-tree ul {
+  list-style: none;
+  padding-left: 20px;
+}
+.file-tree li.folder > summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+.file-btn {
+  background: none;
+  border: none;
+  color: #2980b9;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+.btn-delete-small {
+  background: red;
+  color: white;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+.badge-main {
+  background: green;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.upload-form {
+  margin-top: 20px;
+}
+.drop-zone {
+  margin-top: 15px;
+  padding: 30px;
+  border: 2px dashed #3498db;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.drop-zone.drag-over {
+  background-color: #ecf5ff;
+}
+
+.stats-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.stats-info {
+  min-width: 200px;
+  font-size: 16px;
+}
+
+.stats-info p {
+  margin-bottom: 10px;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background: #f0f0f0;
+}
+
+.tab {
+  text-decoration: none;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.tab.active {
+  background: #007bff;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 15px 0;
+}

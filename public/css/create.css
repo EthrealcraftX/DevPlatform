@@ -1,0 +1,217 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #007bff;
+  color: white;
+  padding: 15px 30px;
+  align-items: center;
+}
+
+.navbar .left a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar .right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar .right span {
+  font-weight: 500;
+}
+
+#create-page,
+.create-page {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-page h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Labels and inputs */
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Drop zone */
+.drop-zone {
+  border: 2px dashed #007bff;
+  padding: 30px 20px;
+  border-radius: 8px;
+  background: #eef6ff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.drop-zone.dragover {
+  background: #d9ecff;
+  border-color: #0056b3;
+}
+
+.drop-zone p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.drop-zone button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.drop-zone button:hover {
+  background: #0056b3;
+}
+
+/* File list */
+.file-list {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+}
+
+.file-item span {
+  word-break: break-all;
+}
+
+.file-item button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-item button:hover {
+  background: #b02a37;
+}
+
+/* GitHub install */
+#installGithubBtn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #28a745;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#installGithubBtn:hover {
+  background: #1e7e34;
+}
+
+/* Button row */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.cancel {
+  background: #6c757d;
+  color: white;
+}
+
+.btn.cancel:hover {
+  background: #545b62;
+}
+
+.btn.next {
+  background: #007bff;
+  color: white;
+}
+
+.btn.next:disabled {
+  background: #a5c9f0;
+  cursor: not-allowed;
+}
+
+.btn.next:hover:enabled {
+  background: #0056b3;
+}
+
+/* Theme support */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+body.dark .create-page {
+  background: #1f1f1f;
+  box-shadow: none;
+}
+
+body.dark input,
+body.dark select {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark .drop-zone {
+  background: #2a2a2a;
+  border-color: #666;
+}
+
+body.dark .file-item {
+  background: #2e2e2e;
+}

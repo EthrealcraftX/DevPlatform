@@ -1,0 +1,18 @@
+<h2>🖥 Console</h2>
+
+<section class="console-tab">
+  <div class="console-wrapper">
+    <pre id="consoleOutput" class="console-output"><%= logs || '' %></pre>
+  </div>
+
+  <% if (project.status === 'online') { %>
+    <form id="consoleForm" class="console-form">
+      <input type="text" id="consoleCommand" placeholder="Enter command..." autocomplete="off" />
+      <button type="submit">Send</button>
+    </form>
+  <% } else { %>
+    <p class="console-disabled">Console is only available when the project is running.</p>
+  <% } %>
+</section>
+
+<script src="/public/js/console.js"></script>

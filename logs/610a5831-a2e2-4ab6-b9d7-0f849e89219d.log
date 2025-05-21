@@ -1,0 +1,23 @@
+[2025-05-20T18:41:04.587Z] [ERR] node:internal/modules/cjs/loader:613
+    throw e;
+    ^
+
+Error: Cannot find module 'C:\Users\user\Downloads\Telegram Desktop\Adevproject (2)\uploads\610a5831-a2e2-4ab6-b9d7-0f849e89219d\lib\main.js'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1261:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1250:15)
+    at trySelf (node:internal/modules/cjs/loader:606:12)
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1202:24)
+    at Function._load (node:internal/modules/cjs/loader:1055:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:220:24)
+    at Module.require (node:internal/modules/cjs/loader:1311:12)
+    at require (node:internal/modules/helpers:136:16)
+    at Object.<anonymous> (C:\Users\user\Downloads\Telegram Desktop\Adevproject (2)\uploads\610a5831-a2e2-4ab6-b9d7-0f849e89219d\server.js:1:1) {
+  code: 'MODULE_NOT_FOUND',
+  path: '\\\\?\\C:\\Users\\user\\Downloads\\Telegram Desktop\\Adevproject (2)\\uploads\\610a5831-a2e2-4ab6-b9d7-0f849e89219d\\package.json'
+}
+
+[2025-05-20T18:41:04.589Z] [ERR] 
+Node.js v22.14.0
+
+[2025-05-20T18:41:04.657Z] [EXIT] Process finished with code 1
