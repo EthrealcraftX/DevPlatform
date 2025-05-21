@@ -28,7 +28,7 @@
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/yourusername/multimax-panel
+git clone https://github.com/EthrealcraftX/DevPlatform.git
 cd multimax-panel
 npm install
 ```
@@ -112,7 +112,7 @@ MIT License — feel free to use and modify.
 
 Developed by EthrealCraftX
 Telegram: @ethrealcraft
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/EthrealcraftX
 
 
 ⭐ Contribute / Feedback
