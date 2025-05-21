@@ -12,8 +12,7 @@
 
 ## ✨ Features
 
-- ✅ Create project with **drag & drop** file/folder upload
-- ✅ GitHub repo auto-import
+- ✅ Creat project with GitHub repo auto-import
 - ✅ Choose main file, project type (Node, Python, Java)
 - ✅ Realtime **disk usage** and **internet speed**
 - ✅ Project lifecycle: **start / stop / delete**
