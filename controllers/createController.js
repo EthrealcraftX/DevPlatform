@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const fetch = require('node-fetch');
 const unzipper = require('unzipper');
 const { saveProjectMeta, deleteFolderRecursive } = require('../services/utils');
+const { readFileTree } = require('../services/fileTreeReader');
 
 // === GET: Show Create Page
 exports.showCreatePage = (req, res) => {
@@ -43,6 +44,7 @@ exports.uploadFiles = (req, res) => {
 // === POST: Install from GitHub repo
 exports.installFromGithub = async (req, res) => {
   const { url } = req.body;
+
   if (!url || !url.includes('github.com')) {
     return res.status(400).json({ success: false, message: 'Invalid GitHub URL' });
   }
@@ -53,43 +55,60 @@ exports.installFromGithub = async (req, res) => {
       : url + '/archive/refs/heads/main.zip';
 
     const id = crypto.randomUUID();
-    const extractPath = path.join(__dirname, '..', 'uploads', id);
-    fs.mkdirSync(extractPath, { recursive: true });
+    const extractDir = path.join(__dirname, '..', 'uploads', id);
+    fs.mkdirSync(extractDir, { recursive: true });
 
     const response = await fetch(zipUrl);
-    if (!response.ok) throw new Error('Failed to fetch from GitHub');
+    if (!response.ok) throw new Error('GitHub download failed');
 
-    await new Promise((resolve, reject) => {
-      response.body
-        .pipe(unzipper.Extract({ path: extractPath }))
-        .on('close', resolve)
-        .on('error', reject);
-    });
+    // ZIP faylni to‘liq ochguncha kutamiz
+    await response.body
+      .pipe(unzipper.Extract({ path: extractDir }))
+      .promise();
 
-    // Flatten top folder
-    const subdirs = fs.readdirSync(extractPath);
-    let files = [];
-
-    for (const dir of subdirs) {
-      const full = path.join(extractPath, dir);
-      if (fs.lstatSync(full).isDirectory()) {
-        files = fs.readdirSync(full);
-        for (const f of files) {
-          fs.renameSync(path.join(full, f), path.join(extractPath, f));
+    // === Ichidagi top-level folderni flatten qilish ===
+    const entries = fs.readdirSync(extractDir);
+    for (const entry of entries) {
+      const entryPath = path.join(extractDir, entry);
+      if (fs.lstatSync(entryPath).isDirectory()) {
+        const innerFiles = fs.readdirSync(entryPath);
+        for (const f of innerFiles) {
+          const from = path.join(entryPath, f);
+          const to = path.join(extractDir, f);
+          try {
+            fs.renameSync(from, to);
+          } catch (e) {
+            console.warn('[rename failed]', from, '=>', to, e.message);
+          }
         }
-        fs.rmdirSync(full);
-        break;
+        fs.rmSync(entryPath, { recursive: true, force: true });
       }
     }
 
-    const finalFiles = fs.readdirSync(extractPath);
-    return res.json({ success: true, id, files: finalFiles });
+    // === Fayl daraxtini qaytaramiz
+    const tree = readFileTree(extractDir);
+    const flat = flattenFiles(tree);
+
+    return res.json({ success: true, id, files: flat.map(f => f.path) });
+
   } catch (err) {
     console.error('[GitHub install]', err);
     return res.status(500).json({ success: false, message: err.message });
   }
 };
 
+// === Helper to flatten file tree
+function flattenFiles(tree) {
+  let result = [];
+  for (const item of tree) {
+    if (item.type === 'file') {
+      result.push(item);
+    } else if (item.type === 'folder') {
+      result = result.concat(flattenFiles(item.children));
+    }
+  }
+  return result;
+}
 // === POST: Finalize project creation
 exports.finishCreation = (req, res) => {
   const { id, name, main, type, maxSpace } = req.body;
@@ -133,3 +152,4 @@ exports.cancelUpload = (req, res) => {
 
   return res.json({ success: true, message: 'Upload canceled' });
 };
+
