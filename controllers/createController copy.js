@@ -3,6 +3,7 @@ const path = require('path');
 const crypto = require('crypto');
 const fetch = require('node-fetch');
 const unzipper = require('unzipper');
+const { exec } = require('child_process');
 const { saveProjectMeta, deleteFolderRecursive } = require('../services/utils');
 const { readFileTree } = require('../services/fileTreeReader');
 
