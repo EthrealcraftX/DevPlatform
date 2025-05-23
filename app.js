@@ -48,9 +48,11 @@ app.use((req, res, next) => {
 // === Socket.io setup
 require('./socketManager')(io);
 
-// === Routes
+// === Route's 
+const pingRoutes = require('./routes/ping');
 app.use('/', require('./routes/index')); // index.js handles all subroutes
-app.use('/', require('./routes/home'))
+app.use('/', require('./routes/home'));
+app.use('/project', pingRoutes);
 
 
 // === 404 Not Found
