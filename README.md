@@ -1,30 +1,38 @@
-# MultiMax Project Hosting Panel
+# DevPlatform — Self‑Hosted PaaS (Heroku/Railway uslubida)
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-> Powerful self-hosted project management panel for **Node.js**, **Python**, and **Java** applications.  
-> Create, upload, start, monitor, and manage your projects — all from a simple web interface!
+DevPlatform — bu **Heroku/Railway** kabi platformalarning self‑hosted versiyasi: Node.js, Python va Java ilovalarini bir joydan **yaratish, joylash, ishga tushirish, monitoring qilish** va **boshqarish** imkonini beradi. Loyiha kichik jamoalar, startup va ichki infratuzilma uchun PaaS tajribasini tezda joriy etishga mo‘ljallangan.
 
 ---
 
-## ✨ Features
+## 🚀 Imkoniyatlar
 
-- ✅ Creat project with GitHub repo auto-import
-- ✅ Choose main file, project type (Node, Python, Java)
-- ✅ Realtime **disk usage** and **internet speed**
-- ✅ Project lifecycle: **start / stop / delete**
-- ✅ **File manager** with open / delete / upload
-- ✅ **Online editor** with CodeMirror integration
-- ✅ **Live console logs** and input stream
-- ✅ **Admin panel** to manage users (promote to admin, delete, view total projects)
-- ✅ Email support with **Brevo SMTP**
+- **GitHub repodan import** va loyiha yaratish
+- **Main file** va **stack** tanlash (Node.js / Python / Java)
+- **Start / Stop / Delete** bilan lifecycle boshqaruvi
+- **Real‑time** disk usage va internet tezlik monitoringi
+- **File manager**: ko‘rish, o‘chirish, upload
+- **Onlayn kod editor** (CodeMirror)
+- **Live console logs** va input stream
+- **Admin panel**: foydalanuvchilarni boshqarish (admin qilish, o‘chirish, statistikalar)
+- **Email xabarnomalar** (Brevo SMTP integratsiyasi)
 
 ---
 
-## ⚙️ Installation
+## 🧩 Texnologiyalar
+
+- Backend: **Node.js** (Express)
+- Real‑time: **Socket.IO**
+- Editor: **CodeMirror**
+- SMTP: **Brevo**
+
+---
+
+## ⚙️ O‘rnatish (Local)
 
 ```bash
 git clone https://github.com/EthrealcraftX/DevPlatform.git
@@ -32,88 +40,70 @@ cd DevPlatform
 npm install
 ```
 
-Start the server:
+Serverni ishga tushirish:
 
-node server.js
-
-
-🔐 Login
-
-Default login available via registration
-
-```login
-username: admin
-password: 1234
+```bash
+node app.js
 ```
-Admins can manage other users via /admin/users
 
-```admin
+---
+
+## 🔐 Login va Admin
+
+Ro‘yxatdan o‘tgan foydalanuvchilar ichidan admin orqali ruxsat beriladi.
+
+**Admin yo‘llari:**
+
+```
 /admin
 /admin/users
 /admin/stats
 ```
 
-users management 
+**Foydalanuvchi yo‘llari:**
 
-```users
+```
 /home
 /login
 /register
 ```
 
+---
 
-📁 How to Use
+## 📁 Foydalanish bosqichlari
 
-1. Login or register a new user
-(when user register account admin must give permission for login when they registered new account)
+1. Ro‘yxatdan o‘ting va admin tasdiqlashini kuting.
+2. **Create Project** bo‘limiga o‘ting.
+3. GitHub repozitoriyasini import qiling.
+4. Stack va main faylni tanlang (Node.js/Python/Java).
+5. **Create Project** tugmasini bosing.
+6. Loyiha holatini boshqaring: **Start/Stop**, loglarni ko‘ring, fayllarni tahrirlang.
 
-2. Go to + Create Project
+---
 
+## ⚠️ Eslatmalar
 
-3.import from GitHub
+- Platforma **faol ishlab chiqilmoqda** — ba’zi funksiyalar ustida ish davom etmoqda.
+- Java `.jar` qo‘llab‑quvvatlashi **asosiy** ko‘rinishda.
+- SMTP sozlamalari Brevo uchun sinovdan o‘tgan ( `services/emailService.js` ).
+- Upload qilingan fayllar `uploads/` ichida saqlanadi.
 
+---
 
-4. Choose main file, project type(Nodejs/Python/Java)
+## 🛡 License
 
+MIT License — erkin foydalanish va moslashtirish mumkin.
 
-5. Click “Create Project”
+---
 
+## 👨‍💻 Muallif
 
-6. Start/Stop, view logs, and edit files online
-
-
-
-
-✅ Test Coverage
-
-
-⚠️ Warnings
-
-This panel is still in development. Expect bugs or edge case failures.
-
-.jar support is basic. Please report issues if encountered.
-
-Email system is tested only with Brevo SMTP (recommended) you can enter your Brevo gmail and edit in services/emailService.js.
-
-All uploads are stored in the uploads/ directory. Handle with care!
-
-Admin features are basic but extendable.
-
-
-
-🛡 License
-
-MIT License — feel free to use and modify.
-
-
-
-👨‍💻 Author
-
-Developed by EthrealCraftX
-Telegram: @ethrealcraft
+Developed by **EthrealCraftX**  
+Telegram: @ethrealcraft  
 GitHub: https://github.com/EthrealcraftX
 
+---
 
-⭐ Contribute / Feedback
+## ⭐ Hissa qo‘shish
 
-If you found this project useful, please star the repo and feel free to open issues or PRs!1
+Taklif va PR’lar xush kelibsiz. Agar loyiha foydali bo‘lsa, iltimos ⭐ bosing.
